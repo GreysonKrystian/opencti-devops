@@ -1,0 +1,7 @@
+tests/**
+
+config/development.json
+config/production.json
+config/local.json
+logs
+yarn-error.log
