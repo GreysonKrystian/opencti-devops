@@ -1,7 +1,7 @@
-FROM node:20-alpine as build
+FROM node:20-alpine AS build
 
 RUN corepack enable && corepack prepare yarn@stable --activate && yarn set version 4.6.0
-RUN apk add --no-cache python3 python3-dev py3-pip
+RUN apk add --no-cache python3 python3-dev py3-pip build-essential
 
 WORKDIR /build
 
@@ -14,7 +14,7 @@ COPY src/python/requirements.txt ./src/python/requirements.txt
 RUN pip3 install -r src/python/requirements.txt --no-cache-dir --break-system-packages
 
 # RUN yarn install --immutable 
-RUN yarn install --mode=update-lockfile
+RUN yarn install
 
 RUN ls -la
 
@@ -25,7 +25,7 @@ COPY . .
 RUN yarn build:dev
 
 
-FROM node:20-alpine as runtime
+FROM node:20-alpine AS runtime
 
 RUN yarn set version 4.6.0
 
