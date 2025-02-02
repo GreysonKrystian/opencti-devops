@@ -1,0 +1,4 @@
+tests_e2e/**
+
+logs
+yarn-error.log

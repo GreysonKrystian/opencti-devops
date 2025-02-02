@@ -14,7 +14,6 @@ COPY ./opencti-graphql/src/python/requirements.txt ./src/python/requirements.txt
 
 RUN pip3 install -r src/python/requirements.txt --no-cache-dir --break-system-packages
 
-# RUN yarn install --immutable 
 RUN yarn install
 
 RUN yarn cache clean
@@ -32,16 +31,16 @@ WORKDIR /app
 
 COPY --from=build /build /app
 
-#COPY ./opencti-graphql/src/python/requirements.txt ./src/python/requirements.txt
 
 RUN pip3 install -r src/python/requirements.txt --no-cache-dir --break-system-packages
 
-#RUN yarn install --production --immutable
 
 EXPOSE 4000
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
+
+#TODO envs
 
 ENTRYPOINT ["yarn"]
 CMD ["serv"]
