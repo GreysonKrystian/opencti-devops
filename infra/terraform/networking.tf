@@ -9,7 +9,7 @@ resource "azurerm_subnet" "opencti-subnet-test" {
   name                 = "opencti-subnet-test"
   resource_group_name  = azurerm_resource_group.kg-opencti-test.name
   virtual_network_name = azurerm_virtual_network.kg-opencti-vnet-test.name
-  address_prefixes     = ["10.0.241.0/24"]
+  address_prefixes     = ["10.0.1.0/24"]
 }
 
 resource "azurerm_private_dns_zone" "opencti-private-dns-test" {
