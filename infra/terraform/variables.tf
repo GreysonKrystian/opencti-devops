@@ -13,3 +13,15 @@ variable "admin_password" {
   type        = string
   sensitive   = true
 }
+
+variable "bastion_sku" {
+  description = "Sku of the bastion"
+  type        = string
+  sensitive   = true
+}
+
+variable "vm_sku" {
+  description = "Sku of the VM"
+  type        = string
+  sensitive   = true
+}

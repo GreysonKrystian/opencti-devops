@@ -23,7 +23,7 @@ resource "azurerm_virtual_machine" "opencti-es-vm-test" {
   location              = azurerm_resource_group.kg-opencti-test.location
   resource_group_name   = azurerm_resource_group.kg-opencti-test.name
   network_interface_ids = [azurerm_network_interface.opencti-es-nic-test.id]
-  vm_size               = "Standard_DS1_v2"
+  vm_size               = var.vm_sku
 
   delete_os_disk_on_termination = true
   delete_data_disks_on_termination = true

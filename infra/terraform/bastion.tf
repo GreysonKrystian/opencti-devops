@@ -3,14 +3,14 @@ resource "azurerm_public_ip" "bastion-test-pip" {
   location            = azurerm_resource_group.kg-opencti-test.location
   resource_group_name = azurerm_resource_group.kg-opencti-test.name
   allocation_method   = "Static"
-  sku                 = "Standard"
+  sku                 = var.bastion_sku
 }
 
 resource "azurerm_bastion_host" "opencti-bastionhost-test" {
   name                = "opencti-bastionhost-test"
   location            = azurerm_resource_group.kg-opencti-test.location
   resource_group_name = azurerm_resource_group.kg-opencti-test.name
-  sku                 = "Basic"
+  sku                 = var.bastion_sku
 
   ip_configuration {
     name                 = "configuration"
