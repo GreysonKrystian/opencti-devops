@@ -25,3 +25,9 @@ variable "vm_sku" {
   type        = string
   sensitive   = true
 }
+
+variable "debug" {
+  description = "Set to true to enable public IP for debugging"
+  type        = bool
+  default     = false
+}

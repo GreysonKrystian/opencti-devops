@@ -20,7 +20,7 @@ resource "azurerm_private_endpoint" "opencti-redis-cache-test-pe" {
   subnet_id           = azurerm_subnet.opencti-subnet-test.id
 
   private_service_connection {
-    name                           = "example-privateserviceconnection"
+    name                           = "opencti-redis-cache-test-privateserviceconnection"
     private_connection_resource_id = azurerm_redis_cache.opencti-redis-cache-test.id
     is_manual_connection           = false
     subresource_names              = ["redisCache"]
